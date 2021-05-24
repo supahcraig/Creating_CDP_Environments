@@ -87,11 +87,13 @@ The output will be several JSON documents which will be of no use to you.
 
 ## Register the Environment in the CDP Management Console
 
-1. Register Environment
+1. Click Register Environment button
 2. Select Azure as the cloud environment
 3. Choose/Create your Azure Credential
 
+___
 ### Creating an Azure CDP Credential
+If you don't already have a credential you'd like to use, follow this:
 
 1. Select Azure as the cloud environment
 2. Give your credential a name
@@ -115,3 +117,52 @@ Output should look something like this:
 
 HIT CREATE.
 
+---
+
+### Finish CDP Envionrment steps
+4. Assumer Identity = `<resource group name>-AssumerIdentity'
+5. Storage Identity = `data@<storage account name>`
+6. Data Access Identity = `<resource group name>-DataAccessIdentity`
+7. Ranger Audit Identity = `<resource group name>-RangerIdentity`
+
+(click next)
+
+8. Select your region & resource group
+9. Select your network (virtual network name found in Azure console under your resource group)
+10. Click Default for subnet
+11. Enable CCM
+12. Disable the following:
+  * Create private endpoints
+  * Don't create public IP
+  * Enable Free IPA HA
+  * Do not use proxy configuration
+13. Create new security Group
+  * Allow 0.0.0.0/0
+
+___
+
+#### SSH Settings
+
+14. Create a new SSH key
+
+From your local machine:
+`ssh-keygen -t rsa`
+
+Choose a filename to save it to (I like `azure.rsa` but it doesn't matter), and use an empty passphrase.
+
+Copy the public key
+`cat azure.rsa.pub`
+
+The entire key will need to be copied, it should look something like this:
+`ssh-rsa rAnDoMsTrRiNgOfChArAcHtErSeNdInGwItH= yourusername@host`
+
+And paste that into the New SSH key box in the CDP console
+
+___
+
+(click next)
+
+15. Logger Identity = `<resource group name>-LoggerIdentity`
+16. Logs Location Base = `logs@<storage account name>`
+
+CREATE ENVIRONMENT.
