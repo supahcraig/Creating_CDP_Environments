@@ -9,7 +9,7 @@ From the Azure console, open a command prompt:
 >
 `az account list|jq '.[]|{"name": .name, "subscriptionId": .id, "tenantId": .tenantId, "state": .state}'`
 
-Output should looks something like:
+Output should looks something like this, which you will use later on in the process.
 >>
 ```
 {
@@ -33,25 +33,9 @@ This will open an ARM template to build out the prerequisites in your Azure subs
 * Create a new resource group
 * Pick your environment name (no dashes allowed here, just upper/lower alphanumeric)
 
-Once created, go back to the Azure shell:
 
-_You can use whatever you like for the custom app name, I don't think we ever actually use it._
-`az ad sp create-for-rbac --name http://<CUSTOM APP NAME>-app --role Contributor --scopes /subscriptions/<SUBSCRIPTION ID>`
 
-Output should look something like this:
-
->>
-```
-{
-  "appId": "app-ID-text-here",
-  "displayName": "cnelson2-cdp-app",
-  "name": "http://cnelson2-cdp-app",
-  "password": "password-text-here",
-  "tenant": "tenant-ID-text-here"
-}
-```
-
-### Set 2 environment variables
+### Set some environment variables
 >>
 ```
 export SUBSCRIPTIONID=YourSubscriptionId
