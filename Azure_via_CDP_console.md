@@ -14,8 +14,8 @@ Output should looks something like:
 ```
 {
   "name": "azure-se-cdp-sandbox-env",
-  "subscriptionId": "abce3e07-b32d-4b41-8c78-2bcaffe4ea27",
-  "tenantId": "c7f832d2-fcca-4595-9860-1e81b76c28ff",
+  "subscriptionId": "subscription-ID-text-here",
+  "tenantId": "tenant-ID-text-here",
   "state": "Enabled"
 }
 ```
@@ -35,13 +35,30 @@ This will open an ARM template to build out the prerequisites in your Azure subs
 
 Once created, go back to the Azure shell:
 
-`az ad sp create-for-rbac --name http://cnelson2-cdp-app --role Contributor --scopes /subscriptions/<SUBSCRIPTION ID>`
+_You can use whatever you like for the custom app name, I don't think we ever actually use it._
+`az ad sp create-for-rbac --name http://<CUSTOM APP NAME>-app --role Contributor --scopes /subscriptions/<SUBSCRIPTION ID>`
 
+Output should look something like this:
+
+>>
+```
+{
+  "appId": "app-ID-text-here",
+  "displayName": "cnelson2-cdp-app",
+  "name": "http://cnelson2-cdp-app",
+  "password": "password-text-here",
+  "tenant": "tenant-ID-text-here"
+}
+```
+
+### Set 2 environment variables
 >>
 ```
 export SUBSCRIPTIONID=YourSubscriptionId
 export RESOURCEGROUPNAME=YourResourceGroupName
 ```
+
+### Run the script to assign the privs to the identities
 
 Either copy/paste all this into the shell, or save it as a script, chmod +x, and execute.   
 ```
@@ -64,4 +81,37 @@ az role assignment create --assignee $DATAACCESS_OBJECTID --role 'b7e6dc6d-f1e8-
 # Assign Storage Blob Data Contributor role to the rangerIdentity principal at data filesystem scope
 az role assignment create --assignee $RANGER_OBJECTID --role 'ba92f5b4-2d11-453d-a403-e96b0029c9fe' --scope "/subscriptions/$SUBSCRIPTIONID/resourceGroups/$RESOURCEGROUPNAME/providers/Microsoft.Storage/storageAccounts/$STORAGEACCOUNTNAME/blobServices/default/containers/data"
 ```
+
+The output will be several JSON documents which will be of no use to you.
+
+
+## Register the Environment in the CDP Management Console
+
+1. Register Environment
+2. Select Azure as the cloud environment
+3. Choose/Create your Azure Credential
+
+### Creating an Azure CDP Credential
+
+1. Select Azure as the cloud environment
+2. Give your credential a name
+3. Enter the Subscription ID & Tenent ID, which you found using the `az account list` command
+4. Go back to the Azure shell and run this command to get the App ID & Password components
+
+_You can use whatever you like for the custom app name, I don't think we ever actually use it._
+`az ad sp create-for-rbac --name http://<CUSTOM APP NAME>-app --role Contributor --scopes /subscriptions/<SUBSCRIPTION ID>`
+
+Output should look something like this:
+>>
+```
+{
+  "appId": "app-ID-text-here",
+  "displayName": "cnelson2-cdp-app",
+  "name": "http://cnelson2-cdp-app",
+  "password": "password-text-here",
+  "tenant": "tenant-ID-text-here"
+}
+```
+
+HIT CREATE.
 
