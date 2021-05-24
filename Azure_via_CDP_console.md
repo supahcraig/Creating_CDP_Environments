@@ -6,6 +6,7 @@ Thanks to https://github.com/cpv0310/cdp-azure-tools for laying the groundwork f
 ## Collect Subscription & Tenant Info
 
 From the Azure console, open a command prompt:
+>
 `az account list|jq '.[]|{"name": .name, "subscriptionId": .id, "tenantId": .tenantId, "state": .state}'`
 
 Output should looks something like:
@@ -19,6 +20,9 @@ Output should looks something like:
 }
 ```
 
+---
+
 ## Build out Prerequisites using an Azure Resource Managment Template
 
 Go here:  https://portal.azure.com/#create/Microsoft.Template
+
