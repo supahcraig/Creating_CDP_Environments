@@ -85,6 +85,7 @@ If you don't already have a credential you'd like to use, follow this:
 4. Go back to the Azure shell and run this command to get the App ID & Password components
 
 _You can use whatever you like for the custom app name, I don't think we ever actually use it._
+
 `az ad sp create-for-rbac --name http://<CUSTOM APP NAME>-app --role Contributor --scopes /subscriptions/<SUBSCRIPTION ID>`
 
 Output should look something like this:
