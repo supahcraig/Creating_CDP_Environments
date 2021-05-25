@@ -33,6 +33,9 @@ This will open an ARM template to build out the prerequisites in your Azure subs
 * Create a new resource group
 * Pick your environment name (no dashes allowed here, just upper/lower alphanumeric)
 
+CLICK CREATE. 
+
+This won't take too long, but it's not done until you see a virtual network, storage account, and 4 managed identities (Assumer, DataAccess, Logger, and Ragner)
 
 
 ### Set some environment variables
