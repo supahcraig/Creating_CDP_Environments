@@ -121,7 +121,7 @@ Output should look something like this:
 }
 ```
 
-HIT CREATE.
+**HIT CREATE.**
 
 The CDP CLI command for creating your credential will look like this.   If it works, it will be one of the few "show CLIs" that actually works.
 
@@ -137,6 +137,9 @@ cdp environments create-azure-credential \
 ---
 
 ### Finish CDP Envionrment steps
+
+All these items can be found from inside your resource group in the Azure console, or if you remember your environment name & start typing in the box.
+
 4. Assumer Identity = `<resource group name>-AssumerIdentity'
 5. Storage Identity = `data@<storage account name>`
 6. Data Access Identity = `<resource group name>-DataAccessIdentity`
@@ -152,15 +155,15 @@ cdp environments create-azure-credential \
   * Create private endpoints
   * Don't create public IP
   * Enable Free IPA HA
-  * Do not use proxy configuration
-13. Create new security Group
+14. Do not use proxy configuration
+15. Create new security Group
   * Allow 0.0.0.0/0
 
 ___
 
 #### SSH Settings
 
-14. Create a new SSH key
+16. Create a new SSH key
 
 From your local machine:
 `ssh-keygen -t rsa`
@@ -179,7 +182,7 @@ ___
 
 (click next)
 
-15. Logger Identity = `<resource group name>-LoggerIdentity`
-16. Logs Location Base = `logs@<storage account name>`
+17. Logger Identity = `<resource group name>-LoggerIdentity`
+18. Logs Location Base = `logs@<storage account name>`
 
 CREATE ENVIRONMENT.
