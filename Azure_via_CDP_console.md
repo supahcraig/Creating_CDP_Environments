@@ -25,7 +25,7 @@ Output should looks something like this, which you will use later on in the proc
 ## Build out Prerequisites using an Azure Resource Managment Template
 
 Go here:
-https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcegganesh84%2Fcdp-azure-tools%2Fmaster%2Fazuredeploy.json
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcegganesh84%2Fcdp-azure-tools%2Fmaster%2Fazuredeploy.json">CDP ARM Template</a>
 
 This will open an ARM template to build out the prerequisites in your Azure subscription:  virtual network, storage account, and 4 identities
 
