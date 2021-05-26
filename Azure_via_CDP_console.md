@@ -37,11 +37,14 @@ This will open an ARM template to build out the prerequisites in your Azure subs
 CLICK CREATE. 
 
 This won't take too long, but it's not done until you see a virtual network, storage account, and 4 managed identities (Assumer, DataAccess, Logger, and Ragner)
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| Type          | Resource Name |
+| ------------- |:-------------:|
+| Virtual Network  | <env name> |
+| Storage Account  | <env name>      |
+| Managed Identity | <env name>-AssumerIdentity     |
+| Managed Identity | <env name>-DataAccessIdentity  |
+| Managed Identity | <env name>-LoggerIdentity      |
+| Managed Identity | <env name>-RangerIdentity      |
 
 
 
