@@ -33,6 +33,7 @@ This will open an ARM template to build out the prerequisites in your Azure subs
 * Create a new resource group
   * If you click create but it fails validation, odds are your resource group still got created
 * Pick your environment name (no dashes allowed here, just lower-case/alphanumeric)
+  * this environment name is not the same as your CDP environment name
 
 **CLICK CREATE.**
 
@@ -200,25 +201,26 @@ In addition to the virtual network, storage account, and managed identities need
 
 | Type          | Resource Name |
 | ------------- |-------------|
-| Availability Set  | `xxx-azure-freeipa-master0-as` |
+| Availability Set  | `<xxx>-azure-freeipa-master0-as` |
 | Azure Database for PostgreSQL server  | _`<guid>`_      |
-| Disk | `xxx-datalake108874-osDiski1`     |
-| Disk | `xxx-datalake108874-osDiskm0`     |
-| Disk | `xxx-freeipa17826-osDiskm0`     |
-| Disk | `xxxdatalak-m-0-0-08d70630ed9840`     |
+| Disk | `<xxx>-datalake108874-osDiski1`     |
+| Disk | `<xxx>-datalake108874-osDiskm0`     |
+| Disk | `<xxx>-freeipa17826-osDiskm0`     |
+| Disk | `<xxx>datalak-m-0-0-08d70630ed9840`     |
 | Image | `cb-cdh-729-1619762518.vhd-southcentralus`  |
 | Image | `freeipa-cdh--2103081333.vhd-southcentralus`      |
-| Network Interface | `cnelson2-azure-datalake108874i1`      |
-| Network Interface | `cnelson2-azure-datalake108874m0`      |
-| Network Interface | `cnelson2-azure-freeipa17826m0`      |
+| Network Interface | `<xxx>-datalake108874i1`      |
+| Network Interface | `<xxx>-datalake108874m0`      |
+| Network Interface | `<xxx>-freeipa17826m0`      |
 | Network Security Group | `idbroker<xxx>-datalake108874sg`     |
 | Network Security Group | `master0<xxx>-freeipa17826sg`     |
 | Network Security Group | `master<xxx>-datalake108874sg`     |
-| Public IP address | `cnelson2-azure-datalake108874i1`    |
-| Public IP address | `cnelson2-azure-datalake108874m0`    |
-| Public IP address | `cnelson2-azure-freeipa17826m0`    |
+| Public IP address | `<xxx>-datalake108874i1`    |
+| Public IP address | `<xxx>-datalake108874m0`    |
+| Public IP address | `<xxx>-freeipa17826m0`    |
 | Storage Account | `cbimgscu9fd109a716490400`   |
-| Virtual Machine | `cnelson2-azure-datalake108874i1`   |
-| Virtual Machine | `cnelson2-azure-datalake108874m0`   |
-| Virtual Machine | `cnelson2-azure-freeipa17826m0`   |
+| Virtual Machine | `<xxx>-datalake108874i1`   |
+| Virtual Machine | `<xxx>-datalake108874m0`   |
+| Virtual Machine | `<xxx>-freeipa17826m0`   |
 
+_where <xxx> is your CDP environment name_
