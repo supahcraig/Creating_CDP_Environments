@@ -166,14 +166,17 @@ ___
 16. Create a new SSH key
 
 From your local machine:
+
 `ssh-keygen -t rsa`
 
 Choose a filename to save it to (I like `azure.rsa` but it doesn't matter), and use an empty passphrase.
 
 Copy the public key
+
 `cat azure.rsa.pub`
 
 The entire key will need to be copied, it should look something like this:
+
 `ssh-rsa rAnDoMsTrRiNgOfChArAcHtErSeNdInGwItH= yourusername@host`
 
 And paste that into the New SSH key box in the CDP console
@@ -185,4 +188,6 @@ ___
 17. Logger Identity = `<resource group name>-LoggerIdentity`
 18. Logs Location Base = `logs@<storage account name>`
 
-CREATE ENVIRONMENT.
+**CREATE ENVIRONMENT.**
+
+This will take a while.
