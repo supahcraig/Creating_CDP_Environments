@@ -39,12 +39,12 @@ CLICK CREATE.
 This won't take too long, but it's not done until you see a virtual network, storage account, and 4 managed identities (Assumer, DataAccess, Logger, and Ragner)
 | Type          | Resource Name |
 | ------------- |:-------------:|
-| Virtual Network  | <env name> |
-| Storage Account  | <env name>      |
-| Managed Identity | <env name>-AssumerIdentity     |
-| Managed Identity | <env name>-DataAccessIdentity  |
-| Managed Identity | <env name>-LoggerIdentity      |
-| Managed Identity | <env name>-RangerIdentity      |
+| Virtual Network  | `<env name>` |
+| Storage Account  | `<env name>`      |
+| Managed Identity | `<env name>-AssumerIdentity`     |
+| Managed Identity | `<env name>-DataAccessIdentity`  |
+| Managed Identity | `<env name>-LoggerIdentity`      |
+| Managed Identity | `<env name>-RangerIdentity`      |
 
 
 
