@@ -31,11 +31,18 @@ This will open an ARM template to build out the prerequisites in your Azure subs
 
 * Select your region
 * Create a new resource group
-* Pick your environment name (no dashes allowed here, just upper/lower alphanumeric)
+  * If you click create but it fails validation, odds are your resource group still got created
+* Pick your environment name (no dashes allowed here, just lower-case/alphanumeric)
 
 CLICK CREATE. 
 
 This won't take too long, but it's not done until you see a virtual network, storage account, and 4 managed identities (Assumer, DataAccess, Logger, and Ragner)
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
 
 
 ### Set some environment variables
