@@ -191,3 +191,34 @@ ___
 **CREATE ENVIRONMENT.**
 
 This will take a while.
+
+---
+
+# Azure Resources Created with a CDP Environment
+
+In addition to the virtual network, storage account, and managed identities needed to create the environment, CDP will spin up these resources:
+
+| Type          | Resource Name |
+| ------------- |-------------|
+| Availability Set  | `xxx-azure-freeipa-master0-as` |
+| Azure Database for PostgreSQL server  | _`<guid>`_      |
+| Disk | `xxx-datalake108874-osDiski1`     |
+| Disk | `xxx-datalake108874-osDiskm0`     |
+| Disk | `xxx-freeipa17826-osDiskm0`     |
+| Disk | `xxxdatalak-m-0-0-08d70630ed9840`     |
+| Image | `cb-cdh-729-1619762518.vhd-southcentralus`  |
+| Image | `freeipa-cdh--2103081333.vhd-southcentralus`      |
+| Network Interface | `cnelson2-azure-datalake108874i1`      |
+| Network Interface | `cnelson2-azure-datalake108874m0`      |
+| Network Interface | `cnelson2-azure-freeipa17826m0`      |
+| Network Security Group | `idbroker<xxx>-datalake108874sg`     |
+| Network Security Group | `master0<xxx>-freeipa17826sg`     |
+| Network Security Group | `master<xxx>-datalake108874sg`     |
+| Public IP address | `cnelson2-azure-datalake108874i1`    |
+| Public IP address | `cnelson2-azure-datalake108874m0`    |
+| Public IP address | `cnelson2-azure-freeipa17826m0`    |
+| Storage Account | `cbimgscu9fd109a716490400`   |
+| Virtual Machine | `cnelson2-azure-datalake108874i1`   |
+| Virtual Machine | `cnelson2-azure-datalake108874m0`   |
+| Virtual Machine | `cnelson2-azure-freeipa17826m0`   |
+
