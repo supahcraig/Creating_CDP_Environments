@@ -86,6 +86,7 @@ az role assignment create --assignee $RANGER_OBJECTID --role 'ba92f5b4-2d11-453d
 
 The output will be several JSON documents which will be of no use to you.
 
+---
 
 ## Register the Environment in the CDP Management Console
 
@@ -93,9 +94,8 @@ The output will be several JSON documents which will be of no use to you.
 2. Select Azure as the cloud environment
 3. Choose/Create your Azure Credential
 
-___
 ### Creating an Azure CDP Credential
-If you don't already have a credential you'd like to use, follow this:
+If you don't already have a credential you'd like to use, follow these steps:
 
 1. Select Azure as the cloud environment
 2. Give your credential a name
@@ -103,8 +103,11 @@ If you don't already have a credential you'd like to use, follow this:
 4. Go back to the Azure shell and run this command to get the App ID & Password components
 
 _You can use whatever you like for the custom app name, I don't think we ever actually use it._
+I think it makes sense to just use your environment name here, so set it as an environment variable first.
 
-`az ad sp create-for-rbac --name http://<CUSTOM APP NAME>-app --role Contributor --scopes /subscriptions/<SUBSCRIPTION ID>`
+`export ENVIRONMENTNAME=<env name>`
+
+`az ad sp create-for-rbac --name http://$ENVIRONMENTNAME-app --role Contributor --scopes /subscriptions/$SUBSCRIPTIONID`
 
 Output should look something like this:
 >>
@@ -119,6 +122,17 @@ Output should look something like this:
 ```
 
 HIT CREATE.
+
+The CDP CLI command for creating your credential will look like this.   If it works, it will be one of the few "show CLIs" that actually works.
+
+```
+cdp environments create-azure-credential \
+--credential-name cnelson2-az-credential \
+--subscription-id abce3e07-b32d-4b41-8c78-2bcaffe4ea27 \
+--tenant-id c7f832d2-fcca-4595-9860-1e81b76c28ff \
+--app-based applicationId=85077951-ea7f-4945-b738-eedf1b0f4f42,secretKey=<YOUR_SECRET> 
+```
+
 
 ---
 
