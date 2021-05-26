@@ -34,7 +34,7 @@ This will open an ARM template to build out the prerequisites in your Azure subs
   * If you click create but it fails validation, odds are your resource group still got created
 * Pick your environment name (no dashes allowed here, just lower-case/alphanumeric)
 
-CLICK CREATE. 
+**CLICK CREATE.**
 
 ---
 
@@ -49,9 +49,11 @@ This won't take too long, but it's not done until you see all 6 resources in you
 | Managed Identity | `<env name>-LoggerIdentity`      |
 | Managed Identity | `<env name>-RangerIdentity`      |
 
+---
 
+## Set some environment variables
 
-### Set some environment variables
+From the Azure console shell create these two environment variables which will be used in an upcoming script.
 >>
 ```
 export SUBSCRIPTIONID=YourSubscriptionId
