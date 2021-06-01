@@ -224,3 +224,8 @@ In addition to the virtual network, storage account, and managed identities need
 | Virtual Machine | `<xxx>-freeipa17826m0`   |
 
 _where <xxx> is your CDP environment name_
+  
+  
+# Tearing Down your Azure CDP Environment
+
+Deleting the environment will remove most of the Azure resources created, but it will preserve the Resource Group, which contains the storage account, virtual network, and managed identies.  These can be reused in your next environment if you want.
