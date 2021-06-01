@@ -23,7 +23,7 @@ One bucket is for data, one for logs
 * ${IDBROKER_ROLE} : `cnelson2-idbroker-role`
 
 
-## Create the IAM Roles & Policies
+## Create the IAM Pre-requisites
 
 ### &#x1F534; NOTE:  
 The ranger audit role resource should not include the /ranger/audit portion of the path.  This is a mistake in the docs.
@@ -36,36 +36,49 @@ The IAM policies are json documents found in this repo
 
 NOTE:  In the Azure setup, the roles are well-named with respect to the input fields in the CDP console.  The names we tend to use in AWS are terrible from that perspective.  I will consider changing them.
 
-Policies could be prefixed with your username to ensure uniquness
+Policies could be prefixed with your username to ensure uniquness.  Also note references to arn's & s3 buckets which will need to be updated to point to your buckets & other AWS objects.
 
-* <username>-bucket-policy-s3-access-policy
-* <username>-datalake-admin-policy-s3-access-policy
-* <username>-dynamodb-policy-policy
 * <username>-idbroker-assume-role-policy
-* <username>-ranger-audit-s3-access-policy
+* <username>-log-policy-s3-access-policy
+* <username>-bucket-policy-s3-access-policy
+* <username>-datalake-admin-policy-s3-access-policy  --> _this one had references to gravity, but I've removed them.  Also how is this different from the bucket policy??
+* <username>-ranger-audit-s3-access-policy --> _upper section of policy referenced gravity, but I removed it.
+* <username>-dynamodb-policy-policy
 
 * <username>-cross-account-policy
 * <username>-gravity-policy --> _is anything specifically named for gravity necessary in general?_
 
+NOTE:  you MAY also need this policy:  https://github.com/supahcraig/cldr_tech_basecamp/blob/main/missions/2_data_access_in_CDP/cnelson2-gravity-policy.json
+  
 ### Create IAM Roles & Attach Policies
   
 Roles could be prefixed with your username to ensure uniquness
 
+* <username>-assumer-instance-role _(formerly known as id-broker-role)_
+  * Attach policy `idbroker-assume-role-policy`
+  * Use ec2 as the use case
 * <username>-data-access-role _(formerly known as datalake-admin-role)_
   * Attach policy `dynamodb-policy`
   * Attach policy `bucket-policy-s3-access`
   * Attach policy `datalake-admin-policy-s3-access`
-  * Trust assumer-instance-role
-* <username>-assumer-instance-role _(formerly known as id-broker-role)_
-  * Attach policy `idbroker-assume-role-policy`
-* <username>-logger-instance-role
+  * Use ec2 as the use case, although it will not matter after we update the trust relationship
+  * Trust Relationship:
+    * Trash the existing trust relationship 
+    * Replace it with the datalake trust policy found in this repo
+    * Update the Principal to be the arn of your `assumer-instance-role`
+* <username>-logger-instance-role _(formerly log-role)_
   * Attach policy `log-policy-s3-access`
   * Attach policy `bucket-policy-s3-access`
+  * Use ec2 as the use case
 * <username>-ranger-audit-role
   * Attach policy `ranger-audit-policy-s3-access`
   * Attach policy `dynamodb-policy`
   * Attach policy `bucket-policy-s3-access`
-  * Trust assumer-instance-role
+  * Use ec2 as the use case, although it will not matter after we update the trust relationship
+  * Trust Relationship:
+    * Trash the existing trust relationship 
+    * Replace it with the datalake trust policy found in this repo
+    * Update the Principal to be the arn of your `assumer-instance-role`
   
 
 ## Create CDP Credentials
