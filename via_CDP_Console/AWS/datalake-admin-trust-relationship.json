@@ -1,0 +1,12 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::665634629064:role/cnelson2-assumer-instance-role"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
