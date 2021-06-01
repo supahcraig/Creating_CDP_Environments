@@ -5,6 +5,18 @@ THIS IS A WORK IN PROGRESS
 Cheat Sheet:
 https://docs.google.com/document/d/1BTTrZ7NijD-xCrlg1YYfHBDjN3KYLEKku3b3sOZ5En4/edit#
 
+## References you'll use throughout the deployment
+
+_Looking to remove this section from the documentation...... _
+
+* ${LOGS_BUCKET} : `cnelson2-logs`
+* ${LOGS_LOCATION_BASE} : `cnelson2-logs/log`
+* ${DATALAKE_BUCKET} : `cnelson2-data`
+* ${STORAGE_LOCATION_BASE} : `cnelson2-data/gravity` --> _is gravity necessary here?  I don't think so_ 
+* ${DYNAMODB_TABLE_NAME} : `cnelson2`
+* ${AWS_ACCOUNT_ID} : `the account id of *YOUR* AWS account`
+* ${IDBROKER_ROLE} : `cnelson2-idbroker-role`
+
 
 ## Create 2 buckets in S3, use default permissions
 
@@ -13,15 +25,7 @@ One bucket is for data, one for logs
 * `cnelson2-data`
 * `cnelson2-logs`
 
-## References you'll use throughout the deployment
-* ${LOGS_BUCKET} : `cnelson2-logs`
-* ${LOGS_LOCATION_BASE} : `cnelson2-logs/log`
-* ${DATALAKE_BUCKET} : `cnelson2-data`
-* ${STORAGE_LOCATION_BASE} : `cnelson2-data/gravity` --> _is gravity necessary here?_ 
-* ${DYNAMODB_TABLE_NAME} : `cnelson2`
-* ${AWS_ACCOUNT_ID} : `the account id of *YOUR* AWS account`
-* ${IDBROKER_ROLE} : `cnelson2-idbroker-role`
-
+---
 
 ## Create the IAM Pre-requisites
 
@@ -36,17 +40,17 @@ The IAM policies are json documents found in this repo
 
 NOTE:  In the Azure setup, the roles are well-named with respect to the input fields in the CDP console.  The names we tend to use in AWS are terrible from that perspective.  I will consider changing them.
 
-Policies could be prefixed with your username to ensure uniquness.  Also note references to arn's & s3 buckets which will need to be updated to point to your buckets & other AWS objects.
+Policies could be prefixed with your username to ensure uniquness.  Also note references to ARN's & s3 buckets which will need to be updated to point to your buckets & other AWS objects.
 
-* <username>-idbroker-assume-role-policy
-* <username>-log-policy-s3-access-policy
-* <username>-bucket-policy-s3-access-policy
-* <username>-datalake-admin-policy-s3-access-policy  --> _this one had references to gravity, but I've removed them.  Also how is this different from the bucket policy??
-* <username>-ranger-audit-s3-access-policy --> _upper section of policy referenced gravity, but I removed it.
-* <username>-dynamodb-policy-policy
+* `idbroker-assume-role-policy`
+* `log-policy-s3-access-policy`
+* `bucket-policy-s3-access-policy`
+* `datalake-admin-policy-s3-access-policy`  --> _this one had references to gravity, but I've removed them.  Also how is this different from the bucket policy??_
+* `ranger-audit-s3-access-policy` --> _upper section of policy referenced gravity, but I removed it._
+* `dynamodb-policy-policy`
 
-* <username>-cross-account-policy
-* <username>-gravity-policy --> _is anything specifically named for gravity necessary in general?_
+* <username>-cross-account-policy. --> used in creation of CDP credential
+* <username>-gravity-policy --> _is anything specifically named for gravity necessary in general???_
 
 NOTE:  you MAY also need this policy:  https://github.com/supahcraig/cldr_tech_basecamp/blob/main/missions/2_data_access_in_CDP/cnelson2-gravity-policy.json
   
@@ -80,7 +84,8 @@ Roles could be prefixed with your username to ensure uniquness
     * Replace it with the datalake trust policy found in this repo
     * Update the Principal to be the arn of your `assumer-instance-role`
   
-
+---
+  
 ## Create CDP Credentials
 
 
@@ -94,9 +99,11 @@ Roles could be prefixed with your username to ensure uniquness
 Give your credential a name, disable Enable Permision Verification
   
 
+---  
   
+# Creating the CDP environment
   
-# Creating the environment
+From the CDP Management Console:  
   
 1. Select your credential, or create a new credential
 
@@ -106,22 +113,37 @@ Give your credential a name, disable Enable Permision Verification
   * Assumer Instance Profile is the id-broker role
   * Data access role is the datalake admin role
   * Ranger audit role is `ranger-audit-role`
-  * Storage location base is the name of your S3 bucket
+  * Storage location base is the name of your S3 bucket. _do I need to include /data here??_
 
-  ## NOTE:
-choose correct region
+*CLICK NEXT.*
+  
+4. choose correct region
 
 ### Networking
-* create new network, use `10.10.0.0/16`
-* disable private subnets
-* create new security groups, use `0.0.0.0/0`
-* pick your keypair
-* enter your dynamodb table name (see above):  `cnelson2` _(it hasn't been created yet, but just use your username as the table name)_
+5. create new network, use `10.10.0.0/16` CIDR block
+  * disable Create Private Subnets
+  * disable Create Private Endpoints
+  * disable Cluster Connectivity Manager (CCM)
+  * disable Enable Public Endpoint Access Gateway
+  * disable Enable FreeIPA HA
+  * do not use Proxy Configuration
+6. Create New Security Groups
+  * use `0.0.0.0/0` CIDR block
+7. Use Existing SSH public key
+  * pick your keypair
+  * --> *give instructions on how to create EC2 keypair in AWS console*
 
+8. Enable S3Guard
+  * enter your dynamodb table name (see above):  `cnelson2` _(it hasn't been created yet, but just use your username as the table name)_
+
+*CLICK NEXT.*  
+  
 ### Logging
-* Logger instance profile is the log-role
-* s3 path is the logs location base (see above): `cnelson2-logs/log`
+9. Logger instance profile is your `logger-instance-role`
+10. Logs location base is the s3 path to your logs bucket: `cnelson2-logs/log`
 
+  
+  
 ## How to create environment?
 ```
 cdp environments create-aws-environment \
