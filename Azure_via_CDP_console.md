@@ -151,7 +151,7 @@ All these items can be found from inside your resource group in the Azure consol
 8. Select your region & resource group
 9. Select your network (virtual network name found in Azure console under your resource group)
 10. Click Default for subnet
-11. Enable CCM
+11. Disable CCM (was 90% sure Chris Van Dyke had this enabled)
 12. Disable the following:
   * Create private endpoints
   * Don't create public IP
