@@ -84,11 +84,18 @@ Give your credential a name, disable Enable Permision Verification
   
   
 # Creating the environment
+  
+1. Select your credential, or create a new credential
 
-* Assumer Instance Profile is the id-broker role
-* Data access role is the datalake admin role
 
-## NOTE:
+2. Name your data lake
+3. Set the Data Access & Audit roles
+  * Assumer Instance Profile is the id-broker role
+  * Data access role is the datalake admin role
+  * Ranger audit role is `ranger-audit-role`
+  * Storage location base is the name of your S3 bucket
+
+  ## NOTE:
 choose correct region
 
 ### Networking
