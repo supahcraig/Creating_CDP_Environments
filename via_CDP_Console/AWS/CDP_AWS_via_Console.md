@@ -8,7 +8,7 @@ Cheat Sheet:
 https://docs.google.com/document/d/1BTTrZ7NijD-xCrlg1YYfHBDjN3KYLEKku3b3sOZ5En4/edit#
 
 
-## Create 2 buckets in S3, use default permissions
+## Create S3 bucket, use default permissions
 
 One bucket is for data & logs
 
@@ -102,11 +102,10 @@ From the CDP Management Console:
   
 1. Select your credential, or create a new credential
 
-
 2. Name your data lake
 3. Set the Data Access & Audit roles
-  * Assumer Instance Profile is the id-broker role
-  * Data access role is the datalake admin role
+  * Assumer Instance Profile is the `assumer-instance-role`
+  * Data access role is the `data-access-role`
   * Ranger audit role is `ranger-audit-role`
   * Storage location base is the name of your S3 bucket. _do I need to include /data here??_
 
