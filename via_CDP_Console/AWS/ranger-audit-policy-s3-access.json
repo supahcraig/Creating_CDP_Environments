@@ -8,7 +8,7 @@
                 "s3:GetObject",
                 "s3:PutObject"
             ],
-            "Resource": "arn:aws:s3:::cnelson2-data/*"
+            "Resource": "arn:aws:s3:::cnelson2-data/ranger/audit/*"
         },
         {
             "Sid": "LimitedAccessToDataLakeBucket",
