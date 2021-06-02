@@ -132,12 +132,12 @@ From the CDP Management Console:
 7. Use Existing SSH public key
   * pick your keypair
   * ***Creating a new Key Pair***
-          1. Go to Key Pairs in the EC2 console in AWS
-          2. Click "Create key pair"
-          3. Name your key pair
-          4. Use the pem format
-          5. Click "Create key pair"
-          6. It will automatically download the pem file, and will exist in AWS as a key pair for later use
+    1. Go to Key Pairs in the EC2 console in AWS
+    2. Click "Create key pair"
+    3. Name your key pair
+    4. Use the pem format
+    5. Click "Create key pair"
+    6. It will automatically download the pem file, and will exist in AWS as a key pair for later use
 
 8. Enable S3Guard
   * enter your dynamodb table name (see above):  `cnelson2` _(it hasn't been created yet, but just use your username as the table name)_
