@@ -6,7 +6,7 @@
             "Action": [
                 "s3:ListBucket"
             ],
-            "Resource": "arn:aws:s3:::cnelson2-logs"
+            "Resource": "arn:aws:s3:::cnelson2-data"
         },
         {
             "Effect": "Allow",
@@ -16,7 +16,7 @@
                 "s3:ListMultipartUploadParts",
                 "s3:PutObject"
             ],
-            "Resource": "arn:aws:s3:::cnelson2-logs/*"
+            "Resource": "arn:aws:s3:::cnelson2-data/*"
         }
     ]
 }
