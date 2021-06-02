@@ -1,46 +1,28 @@
 THIS IS A WORK IN PROGRESS
+On occasion it may include references to Base Camp exercises, especially any references to "gravity" which wasn't explained well.   As I identify outdated references I'll remove them.
+
 
 # Creating a CDP Environment using the CDP Console
 
 Cheat Sheet:
 https://docs.google.com/document/d/1BTTrZ7NijD-xCrlg1YYfHBDjN3KYLEKku3b3sOZ5En4/edit#
 
-## References you'll use throughout the deployment
-
-_Looking to remove this section from the documentation...... _
-
-* ${LOGS_BUCKET} : `cnelson2-logs`
-* ${LOGS_LOCATION_BASE} : `cnelson2-logs/log`
-* ${DATALAKE_BUCKET} : `cnelson2-data`
-* ${STORAGE_LOCATION_BASE} : `cnelson2-data/gravity` --> _is gravity necessary here?  I don't think so_ 
-* ${DYNAMODB_TABLE_NAME} : `cnelson2`
-* ${AWS_ACCOUNT_ID} : `the account id of *YOUR* AWS account`
-* ${IDBROKER_ROLE} : `cnelson2-idbroker-role`
-
 
 ## Create 2 buckets in S3, use default permissions
 
-One bucket is for data, one for logs
+One bucket is for data & logs
 
 * `cnelson2-data`
-* `cnelson2-logs`. --> _not necessary_
 
 ---
 
 ## Create the IAM Pre-requisites
 
-### &#x1F534; NOTE:  
-The ranger audit role resource should not include the /ranger/audit portion of the path.  This is a mistake in the docs.
-Should look like:
-`"Resource": "arn:aws:s3:::cnelson2-data/gravity/*"` --> _is gravity necessary here?_
-
-The IAM policies are json documents found in this repo
+The IAM policies are json documents found in this repo.
 
 ### Create IAM Policies
 
-NOTE:  In the Azure setup, the roles are well-named with respect to the input fields in the CDP console.  The names we tend to use in AWS are terrible from that perspective.  I will consider changing them.
-
-Policies could be prefixed with your username to ensure uniquness.  Also note references to ARN's & s3 buckets which will need to be updated to point to your buckets & other AWS objects.
+Policies could be prefixed with your username to ensure uniquness.  Also note references to ARN's & s3 buckets which will need to be updated to point to _your_ buckets & other AWS objects.
 
 * `idbroker-assume-role-policy`
 * `log-policy-s3-access-policy`
@@ -50,7 +32,6 @@ Policies could be prefixed with your username to ensure uniquness.  Also note re
 * `dynamodb-policy-policy`
 
 * <username>-cross-account-policy. --> used in creation of CDP credential
-* <username>-gravity-policy --> _is anything specifically named for gravity necessary in general???_
 
 NOTE:  you MAY also need this policy:  https://github.com/supahcraig/cldr_tech_basecamp/blob/main/missions/2_data_access_in_CDP/cnelson2-gravity-policy.json
   
