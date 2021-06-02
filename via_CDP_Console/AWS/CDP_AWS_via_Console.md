@@ -58,10 +58,10 @@ NOTE:  you MAY also need this policy:  https://github.com/supahcraig/cldr_tech_b
   
 Roles could be prefixed with your username to ensure uniquness
 
-* <username>-assumer-instance-role _(formerly known as id-broker-role)_
+* `assumer-instance-role` _(formerly known as id-broker-role)_
   * Attach policy `idbroker-assume-role-policy`
   * Use ec2 as the use case
-* <username>-data-access-role _(formerly known as datalake-admin-role)_
+* `data-access-role` _(formerly known as datalake-admin-role)_
   * Attach policy `dynamodb-policy`
   * Attach policy `bucket-policy-s3-access`
   * Attach policy `datalake-admin-policy-s3-access`
@@ -70,11 +70,11 @@ Roles could be prefixed with your username to ensure uniquness
     * Trash the existing trust relationship 
     * Replace it with the datalake trust policy found in this repo
     * Update the Principal to be the arn of your `assumer-instance-role`
-* <username>-logger-instance-role _(formerly log-role)_
+* `logger-instance-role` _(formerly log-role)_
   * Attach policy `log-policy-s3-access`
   * Attach policy `bucket-policy-s3-access`
   * Use ec2 as the use case
-* <username>-ranger-audit-role
+* `ranger-audit-role`
   * Attach policy `ranger-audit-policy-s3-access`
   * Attach policy `dynamodb-policy`
   * Attach policy `bucket-policy-s3-access`
