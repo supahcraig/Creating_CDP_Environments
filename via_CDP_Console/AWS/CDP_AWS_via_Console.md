@@ -131,7 +131,7 @@ From the CDP Management Console:
   * use `0.0.0.0/0` CIDR block
 7. Use Existing SSH public key
   * pick your keypair
-  * --> * ***Creating a new Key Pair***
+  * ***Creating a new Key Pair***
           1. Go to Key Pairs in the EC2 console in AWS
           2. Click "Create key pair"
           3. Name your key pair
