@@ -23,7 +23,7 @@ _Looking to remove this section from the documentation...... _
 One bucket is for data, one for logs
 
 * `cnelson2-data`
-* `cnelson2-logs`
+* `cnelson2-logs`. --> _not necessary_
 
 ---
 
@@ -56,7 +56,7 @@ NOTE:  you MAY also need this policy:  https://github.com/supahcraig/cldr_tech_b
   
 ### Create IAM Roles & Attach Policies
   
-Roles could be prefixed with your username to ensure uniquness
+Roles could be prefixed with your username to ensure uniquness.   The former names are references back to the basecamp CDP instructions & how those IAM roles were named.  Those names did not map to the fields in the CDP console directly, so I've changed the role names to make the UI steps easier on you, dear reader.
 
 * `assumer-instance-role` _(formerly known as id-broker-role)_
   * Attach policy `idbroker-assume-role-policy`
@@ -88,16 +88,30 @@ Roles could be prefixed with your username to ensure uniquness
   
 ## Create CDP Credentials
 
+In the CDP console, go to Environments --> Shared --> Credentials --> Create new credential.
+
+Give your credential a name, disable Enable Permision Verification
+  
+Below that you will find 3 things of vital importance:
+  * the cross-account access policy JSON document (also found in this here repository)
+  * the service account manager Account ID
+  * the External ID
 
 ### Create Cross Account IAM Role/Policy in AWS  
 
-* Create a new policy `<username>-cross-account-policy` in AWS
-  * Use the JSON policy document from this repo OR get the most up-to-date version from the CDP Create Environment Page
-* 
-* Edit the Trust Relationship for the role
+* Create a new policy `cross-account-policy` in AWS
+  * Use the JSON policy document from this repo OR get the most up-to-date version from the CDP Create Environment Page 
+* Create a new role `CDP-cross-account-role`
+  * Use "Another AWS Account" as the type of trusted entity
+    * Use the Service Manager Account ID for the Account ID
+    * Check Require external ID
+    * Use the External ID for External ID
+    * Do not require MFA
+  * attach the `cross-account-policy`
+  * Verify the trust relationship allows for the CDP Account & External ID
+  * Copy the ARN for your new role.......
   
-Give your credential a name, disable Enable Permision Verification
-  
+Paste the role ARN into the Cross-account Role ARN and click *Create*
 
 ---  
   
@@ -130,7 +144,7 @@ From the CDP Management Console:
 6. Create New Security Groups
   * use `0.0.0.0/0` CIDR block
 7. Use Existing SSH public key
-  * pick your keypair
+  * Pick your keypair or create a new key pair
   * ***Creating a new Key Pair***
     1. Go to Key Pairs in the EC2 console in AWS
     2. Click "Create key pair"
@@ -147,7 +161,7 @@ From the CDP Management Console:
   
 ### Logging
 9. Logger instance profile is your `logger-instance-role`
-10. Logs location base is the s3 path to your logs bucket: `cnelson2-logs/log`
+10. Logs location base is the s3 path to your bucket: `cnelson2-data`
 
   
   
