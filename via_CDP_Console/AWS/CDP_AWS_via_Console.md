@@ -163,12 +163,15 @@ There are several aspects of syncing users, and I am unclear how exactly it all 
   * Under Actions select "Synchronize Users to FreeIPA"
   * Click Synchronize Users
   * *Expected time to complete:  ~35 minutes*
+  
+#### Update Roles
 
 1. Go to User Management in the CDP Console
 2. Find your user and click into it
 3. In the actions dropdown, go to Update Roles
 4. You're a good person, go ahead and give yourself all those policies
-5.
+5. From the environment page, go to the actions dropdown and select Manage Access
+6. Click Synchronize Users, then click Synchronize Users
   
   
 ## How to create environment?
