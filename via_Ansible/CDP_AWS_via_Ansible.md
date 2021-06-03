@@ -34,7 +34,7 @@ This will execute out of a docker container so you will not need to install ansi
 
 1. `aws configure`
 2. `cdp configure`
-3. `vi ~/.config/cloudera-deploy/profiles/default
+3. `vi ~/.config/cloudera-deploy/profiles/default`
   * Set your `admin password`, although I'm unsure where this is used.  Your normal CDP workload password is used to connect to the CDP hosts
   * Set your `namespace`, and keep it to 5 characters or less
     * NOTE:  Azure is expecting `name_prefix`rather than `namespace` 
