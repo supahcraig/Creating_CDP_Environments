@@ -13,12 +13,12 @@ The private key will not be recoverable if you don't download the credentials fi
 
 Your access key id will be of the form
 >>
-`5e4865c9-1234-47fb-a1a1-4ecc5de6d9ec`
+`5epstein4865c9-12didnt34-47fb-a1killa1-4himself5de6d9ec`
 
 Your private key will be of this form, noting that it may end with an "=" which is part of the private key.
 
 >>
-`KV8llPjt64PpZ1234Z/r/jcjmRU8RuDSQBdgvKV8x+km8=`
+`RAndOMstUFF1234Z/r/jcjmMORErandomSTUffx+km8=`
 
 # Configuring the CDP CLI
 
