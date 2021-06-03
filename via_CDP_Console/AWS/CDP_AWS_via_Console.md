@@ -143,6 +143,32 @@ From the CDP Management Console:
 9. Logger instance profile is your `logger-instance-role`
 10. Logs location base is the s3 path to your bucket: `cnelson2-data`
 
+*CLICK Register Environment.*
+  
+## Expected time to spin up environment:  Approximately 45 minutes
+  
+---
+  
+## Testing Your Environment
+  
+Click into your environment, go to the Data Lake, and attempt to open up the Cloudera Manager UI.  If it opens up, fantastic.  If it doesn't, you may find that a "synchronize users" may solve the problem.   Why sometimes it works and sometimes it returns a 403 is beyond the scope of my understanding at this time. 
+  
+### Synchronize Users
+  
+There are several aspects of syncing users, and I am unclear how exactly it all works, but here are some of the ways to do it. 
+  
+#### Sync Users to FreeIPA
+
+  * Click into your environment
+  * Under Actions select "Synchronize Users to FreeIPA"
+  * Click Synchronize Users
+  * *Expected time to complete:  ~35 minutes*
+
+1. Go to User Management in the CDP Console
+2. Find your user and click into it
+3. In the actions dropdown, go to Update Roles
+4. You're a good person, go ahead and give yourself all those policies
+5.
   
   
 ## How to create environment?
