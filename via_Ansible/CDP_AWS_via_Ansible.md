@@ -49,6 +49,13 @@ This will execute out of a docker container so you will not need to install ansi
 
 `ansible-playbook /runner/project/cloudera-deploy/main.yml -e "definition_path=examples/sandbox" -t plat`
 
+### Estimated time to spin up the environment:  minutes
+
+---
+
+## Test your environment
+
+
 
 ---
 
