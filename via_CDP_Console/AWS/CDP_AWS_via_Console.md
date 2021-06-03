@@ -1,6 +1,8 @@
 THIS IS A WORK IN PROGRESS
 On occasion it may include references to Base Camp exercises, especially any references to "gravity" which wasn't explained well.   As I identify outdated references I'll remove them.
 
+*_Expected time to stand up an environment:  45-90 minutes_*
+
 
 # Creating a CDP Environment using the CDP Console
 
@@ -10,7 +12,7 @@ https://docs.google.com/document/d/1BTTrZ7NijD-xCrlg1YYfHBDjN3KYLEKku3b3sOZ5En4/
 
 ## Create S3 bucket, use default permissions
 
-One bucket is for data & logs
+One bucket is for data & logs, name it whatever you like, remembering that s3 bucket names need to be globally unique.
 
 * `cnelson2-data`
 
@@ -30,8 +32,6 @@ Policies could be prefixed with your username to ensure uniquness.  Also note re
 * `datalake-admin-policy-s3-access-policy`  --> _this one had references to gravity, but I've removed them.  Also how is this different from the bucket policy??_
 * `ranger-audit-s3-access-policy` --> _upper section of policy referenced gravity, but I removed it._
 * `dynamodb-policy-policy`
-
-* <username>-cross-account-policy. --> used in creation of CDP credential
 
 NOTE:  you MAY also need this policy:  https://github.com/supahcraig/cldr_tech_basecamp/blob/main/missions/2_data_access_in_CDP/cnelson2-gravity-policy.json
   
@@ -173,7 +173,10 @@ There are several aspects of syncing users, and I am unclear how exactly it all 
 5. From the environment page, go to the actions dropdown and select Manage Access
 6. Click Synchronize Users, then click Synchronize Users
   
-  
+
+# CDP CLI commands
+(which may or may not even work)
+
 ## How to create environment?
 ```
 cdp environments create-aws-environment \
