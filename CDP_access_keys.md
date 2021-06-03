@@ -20,6 +20,8 @@ Your private key will be of this form, noting that it may end with an "=" which 
 >>
 `RAndOMstUFF1234Z/r/jcjmMORErandomSTUffx+km8=`
 
+---
+
 # Configuring the CDP CLI
 
 From a terminal window, find your credentials file you just downloaded (it's probably called `credentials`).   Cat it so you can see the values you'll use in a moment.
@@ -36,3 +38,9 @@ Note that the credentials file adds a `%` to the private key.   _*I think this n
 
 
 Now run `cdp configure` and copy/paste the values from the credentials file.
+
+---
+
+# Test the CDP CLI
+
+Run `cdp iam get-user` to confirm things are working.  You should see a JSON response with info relevant to you, dear reader.
