@@ -37,7 +37,7 @@ From the prior step you should be inside the container as the root user...
 1. `aws configure`
 2. `cdp configure`
 3. `vi ~/.config/cloudera-deploy/profiles/default`
-  * Set your `admin password`, although I'm unsure where this is used.  Your normal CDP workload password is used to connect to the CDP hosts
+  * Set your `admin password`, although I'm unsure where this is used.  It is _not_ used in connecting to the CDP hosts; that is your CDP workload password.
   * Set your `namespace`, and keep it to 5 characters or less
     * NOTE:  Azure is expecting `name_prefix`rather than `namespace` 
   * Set your `tags` if desired
