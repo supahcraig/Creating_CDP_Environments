@@ -32,6 +32,8 @@ This will execute out of a docker container so you will not need to install ansi
 
 ## Configure the Credentials within the Container
 
+From the prior step you should be inside the container as the root user...
+
 1. `aws configure`
 2. `cdp configure`
 3. `vi ~/.config/cloudera-deploy/profiles/default`
