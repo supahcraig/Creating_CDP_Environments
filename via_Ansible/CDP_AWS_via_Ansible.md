@@ -26,7 +26,7 @@ This will execute out of a docker container so you will not need to install ansi
   ./quickstart.sh ~/cdp_ansible
   ```
 
-  This will build the docker image, spin up a container from that image, and drop you into the shell for that container.
+  This will build the docker image, spin up a container from that image, and drop you into the shell for that container.  It mounts the ~/cdp_ansible directory as a volume, which may have unexpected consequences if you want to spin up another one of these.   I'm not sure it's ALL that valuable to preserve things in a volume for this use case; it may end up being easier to eliminate that.
   
 ---
 
