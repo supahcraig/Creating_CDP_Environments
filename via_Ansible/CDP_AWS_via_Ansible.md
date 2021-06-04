@@ -65,4 +65,6 @@ ansible-playbook /runner/project/cloudera-deploy/main.yml -e "definition_path=ex
 
 # To Destroy the environment
 
-`ansible-playbook /runner/project/cloudera-deploy/main.yml -e "definition_path=examples/sandbox" -t teardown`
+```
+ansible-playbook /runner/project/cloudera-deploy/main.yml -e "definition_path=examples/sandbox" -t teardown
+```
