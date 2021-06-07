@@ -53,7 +53,7 @@ From the prior step you should be inside the container as the root user...
 ansible-playbook /runner/project/cloudera-deploy/main.yml -e "definition_path=examples/sandbox" -t plat
 ```
 
-### Estimated time to spin up the environment:  minutes
+### Estimated time to spin up the environment: ~60 minutes
 
 ---
 
