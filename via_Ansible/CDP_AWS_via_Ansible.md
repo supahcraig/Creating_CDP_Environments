@@ -60,6 +60,16 @@ ansible-playbook /runner/project/cloudera-deploy/main.yml -e "definition_path=ex
 ## Test your environment
 
 
+Logging into CDP hosts works exactly like it does if you had used the CDP console, meaning your CDP user & CDP workload password.  
+
+Should you need root access, you can log in using the cloudbreak user.  If you did not specify any SSH stuff in the profile configuration, it will create a new set of keys and store them under `~/.ssh` with your namespace prefix.  
+
+```
+ssh -i ~/.ssh/yourPrefix_ssh_rsa cloudbreak@hostname
+```
+
+Once you are logged in `sudo -i` will give you root access.
+
 
 ---
 
