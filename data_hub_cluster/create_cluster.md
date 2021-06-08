@@ -23,3 +23,14 @@ ssh cnelson2@hostname
 
 
 ### Connecting as the cloudbreak user
+
+
+---
+
+# Expected Build Times
+
+| Cluster Template             	| Expected Build Time 	|
+|------------------------------	|--------------------:	|
+| Data Discovery & Exploration 	|          20 minutes 	|
+| Data Engineering             	|                     	|
+|                              	|                     	|
