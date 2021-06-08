@@ -14,9 +14,9 @@ It will prompt you for your password, which is the workload password you set up 
 
 ### Connect as cloudbreak
 
-If you need to sudo for a task or otherwise be root for some reason, it requires the keypair to authenticate.   
+If you need to sudo for a task or otherwise be root for some reason, it requires a keypair or to authenticate.   
 
-If you created your environment from the CDP console, you will need to use the keypair you selected when you created the environment.  That pem file will need 400 permissions.
+If you created your environment from the CDP console, you will need to use the keypair (aka pem file) you selected when you created the environment.  That pem file will need 400 permissions.  If you don't have that pem file, you're screwed.  No, really.  Just tear it down because you ain't getting in.
 ```
 ssh -i /path/to/keypair.pem cloudbreak@hostname
 sudo -i
@@ -30,3 +30,13 @@ If you created your environment using the Ansible playbook (described in this ve
 ssh -i ~/.ssh/namespacePrefix_ssh_rsa cloudbreak@hostname
 sudo -i
 ```
+
+---
+
+## Azure
+
+Azure doesn't use pem files like AWS does, so you'll have a keypair you created when you created your CDP environment (or you used a keypair you had previously created).   In either case you should have these two files on your local machine, hopefully you know where they are:
+
+* `namespacePrefix_ssh_rsa.pub`
+* `namespacePrefix_ssh_rsa`
+
