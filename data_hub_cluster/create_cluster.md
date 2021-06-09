@@ -13,8 +13,14 @@ The amount of time it takes to provision the cluster depends on the cluster defi
 
 # Expected Build Times
 
-| Cluster Template             	| Expected Build Time 	|
-|------------------------------	|--------------------:	|
-| Data Discovery & Exploration 	|          20 minutes 	|
-| Data Engineering             	|                     	|
-|                              	|                     	|
+| Cluster Template             	 | Expected Build Time 	|
+|------------------------------- |--------------------:	|
+| Data Discovery & Exploration 	 |          20 minutes 	|
+| Data Engineering             	 |          25 minutes	  |
+| Data Mart                    	 |          15 minutes  	|
+| Flow Management (Light Duty)   |          35 minutes   |
+| Operational Database with SQL  |          23 minutes   |
+| Real-time Datamart             |          23 minutes   |
+| Streaming Analytics (Light Duty)  |           minutes   |
+| Streams Messaging (Light Duty)  |           minutes   |
+| COD Edge Node  |           minutes   |
