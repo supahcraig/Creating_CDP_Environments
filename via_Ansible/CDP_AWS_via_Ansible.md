@@ -68,6 +68,12 @@ Should you need root access, you can log in using the cloudbreak user.  If you d
 ssh -i ~/.ssh/yourPrefix_ssh_rsa cloudbreak@hostname
 ```
 
+Note that this playbook creates 2 security groups in AWS:
+* `crn21-default`
+* `crn21-knox`
+
+Ansible will add your IP to these security groups.  If your IP changes or if you want others to access your cluster, be aware.
+
 Once you are logged in `sudo -i` will give you root access.
 
 
