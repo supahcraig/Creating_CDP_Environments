@@ -105,5 +105,4 @@ echo "server 169.254.169.123 prefer iburst minpoll 4 maxpoll 4" >> /etc/chrony.c
 systemctl restart chronyd
 ```
 
-TODO:  add to EC2 user-data in launch template
 
