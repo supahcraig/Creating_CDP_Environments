@@ -1,3 +1,5 @@
+RELOCATED to CLDR/Building Environments/CDP Public Cloud on AWS
+
 # How to connect to a CDP host
 
 Once you spin up your data lake environment, and any other data hub clusters or experiences, you will probably need to ssh into one of the hosts.  
