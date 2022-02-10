@@ -1,3 +1,5 @@
+RELOCATED to CLDR/Building Environments/CDP Public Cloud on AWS
+
 # Creating a Data Hub Cluster in CDP
 
 
