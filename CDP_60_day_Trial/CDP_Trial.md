@@ -1,3 +1,5 @@
+THIS HAS BEEN RELOCATED TO CLDR/Building Environments/CDP 60 Day Trial/
+
 # How to install CDP PVC base 60 day trial on AWS
 
 ## Build out AWS Environment
