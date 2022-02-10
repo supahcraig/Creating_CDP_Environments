@@ -1,3 +1,6 @@
+THIS IS NOW LOCATED IN CLDR/Building Environments/CDP Public Cloud on AWS/cloudera-deploy/
+
+
 this is a work in progress
 
 # Creating a CDP environment in AWS via Ansible
